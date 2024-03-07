@@ -21,8 +21,11 @@ extra_compile_args = []
 if sys.platform == "darwin":
     extra_compile_args = ["-stdlib=libc++", "-mmacosx-version-min=10.9", "-v"]
 
+# python pip installation NLINK error: "pyinit_infotheoryClass" not found 
+# fixed an error here, changing "infotheoryClass" to "InfoTools" to match the actual class in C
+# not sure if it actually fixed the compliation error, but successfully installed 
 info_ext_module = Extension(
-    "infotheoryClass",
+    "InfoTools",
     sources=[os.path.join("./", package_name, "PyLinker.cpp")],
     # language = "c++",
     extra_compile_args=extra_compile_args,
